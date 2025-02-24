@@ -1,0 +1,22 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        ArrayList<Integer>res = new ArrayList<Integer>();
+        int [] count = new int[1001]; 
+        for(int num : nums1)
+        {
+            count[num]++;
+        }
+        for(int num: nums2){
+            if(count[num]>0){
+                res.add(num);
+                count[num]--;
+            }
+        }
+        int []result = new int[res.size()];
+        int index = 0;
+        for (int num : res){
+            result[index++] = num;
+        }
+        return result;
+    }
+}
